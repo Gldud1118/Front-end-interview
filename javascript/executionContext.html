@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var foo = 1;
+      let foo2 = 2;
+      const foo3 = 3;
+
+      console.log(window.foo); //1
+      console.log(window.foo2); //undefined
+      console.log(window.foo3); //undefined
+
+      // 전역 변수 선언
+      const x = 1;
+      const y = 2;
+
+      // 함수 정의
+      function bar(a) {
+        const x = 10;
+        const y = 20;
+
+        // 메서드 호출
+        console.log(a + x + y); //130
+        console.log(arguments);
+      }
+
+      // 함수 호출
+      bar(100);
+
+      // 메서드 호출
+      console.log(x + y); //3
+    </script>
+  </body>
+</html>
