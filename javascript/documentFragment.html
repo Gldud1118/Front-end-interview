@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //직접 문서에 요소 추가하기
+      let div = document.createElement('div');
+      for (let i = 0; i < 10; i++) {
+        let divEl = document.createElement('div');
+        divEl.innerText = 'hello~ this is ' + i;
+        div.appendChild(divEl);
+      }
+
+      console.log(div.childNodes);
+      document.body.appendChild(div);
+      console.log(div.childNodes); //메모리 상에 존재
+
+      //DocumentFragment 사용하기
+      let docFrag = document.createDocumentFragment();
+      for (let i = 0; i < 10; i++) {
+        let divEl = document.createElement('div');
+        divEl.innerText = 'hello~ this is ' + i;
+        docFrag.appendChild(divEl);
+      }
+
+      console.log(docFrag.childNodes);
+      document.body.appendChild(docFrag);
+      console.log(docFrag.childNodes); //메모리 상에서 삭제됌
+    </script>
+  </body>
+</html>
