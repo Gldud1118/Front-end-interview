@@ -29,3 +29,21 @@ function bar2(fn) {
 }
 
 foo2();
+
+//클로저의 활용 - 클로저는 상태를 안전하게 변경하고 유지하기 위해 사용한다.
+const counter = (function () {
+  let num = 0;
+  return {
+    increase() {
+      return ++num;
+    },
+    decrease() {
+      return num > 0 ? --num : 0;
+    },
+  };
+})();
+
+console.log(counter.increase());
+console.log(counter.increase());
+console.log(counter.increase());
+console.log(counter.decrease());
