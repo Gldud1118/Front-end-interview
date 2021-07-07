@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //XMLHttpRequest 사용
+      let httpRequest = new XMLHttpRequest();
+
+      httpRequest.onreadystatechange = function () {
+        if (this.readyState === this.DONE) {
+          if (this.status === 200 || this.status === 201) {
+            console.log(this.responseText);
+          } else {
+            console.error(this.responseText);
+          }
+        }
+      };
+
+      httpRequest.open(
+        'GET',
+        'https://jsonplaceholder.typicode.com/todos',
+        true
+      );
+
+      httpRequest.send();
+
+      //fetch API 사용
+    </script>
+  </body>
+</html>
