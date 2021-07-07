@@ -51,12 +51,15 @@ const item = new Item('1', 'cup', 3000);
 console.log(item.name);
 
 console.log(Item.prototype);
+console.log(typeof Item.prototype);
 console.log(Object.getPrototypeOf(item) === Item.prototype); //true
 
 console.log(Object.getPrototypeOf(Item) === Item.prototype); //false
 console.log(Object.getPrototypeOf(item) === Item.prototype); //true
 console.log(Object.getPrototypeOf(Item.prototype) === Object.prototype); //true
 console.log(Object.getPrototypeOf(Item) === Function.prototype); //true
+console.log(Item.prototype.constructor === Item);
+console.log(Item.constructor === Function);
 
 console.log(Object.getPrototypeOf(Object) === Function.prototype); //true
 console.log(Object.getPrototypeOf(Function.prototype) === Object.prototype); //true
