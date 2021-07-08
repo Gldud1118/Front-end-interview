@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>px, em, rem</title>
+    <style>
+      html {
+        font-size: 62.5%;
+      }
+
+      .px {
+        width: 300px;
+        background-color: chartreuse;
+      }
+
+      .em {
+        font-size: 20px;
+        width: 10em;
+        background-color: blueviolet;
+      }
+
+      .rem {
+        width: 10rem;
+        background-color: cadetblue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- em과 rem은 글자 크기를 참조한다. -->
+    <div class="px">
+      가장 기본적으로 사용되는 단위이다. 이것은 픽셀단위라는 고정값에 따라
+      정해지기 때문에 화면의 크기나 확대와 같이 사용자가 임의로 정의할 수 없는
+      고정된 값을 말한다.
+    </div>
+    <div class="em">
+      em 은 이 단위가 적용된 엘리먼트의 글자 크기에 비례한다. em 은 적용되어
+      있지만 글자 크기가 적용되어 있지 않아서 부모의 값을 받아오는
+      경우엔(font-size 는 상속형 속성이다) 부모의 글자 크기를 물려받아 자식(div)
+      의 글자 크기가 “먼저” 적용되고, 그 후에 em 에 의해 너비가 계산된다.
+    </div>
+    <div class="rem">
+      rem 역시 em 과 마찬가지로 글자 크기에 따라 비례되는 속성인데, em 과의
+      차이점은 rem 은 오직 html 태그(root)의 글자 크기만 참조한다. 다른 모든
+      태그의 글자 크기는 신경쓰지 않는다. rem 을 사용할 때는 글자 크기를
+      참조하다보니 계산하기 쉽게 참조 대상의 글자 크기를 10 픽셀로 맞춰놓고
+      진행하는 경우가 많다. html 태그의 경우, 브라우저 기본 설정 기준에서 기본
+      16 픽셀을 갖고 시작하는데 여기에 62.5% 를 곱해주면 10 픽셀로 맞춰놓고
+      시작할 수 있다.
+    </div>
+  </body>
+</html>
