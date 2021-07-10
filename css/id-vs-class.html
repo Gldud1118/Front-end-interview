@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>id, class</title>
+    <style>
+      .section {
+        background-color: grey;
+      }
+
+      #orange {
+        background-color: orange;
+      }
+
+      #green {
+        background-color: green;
+      }
+
+      #pink {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="orange" class="section">
+      id는 한 문서에서 한번만 사용 가능하다.
+    </div>
+    <div id="green" class="section">
+      class는 한 문서에서 여러번 사용 가능하다. 따라서 여러 요소에 중복 사용하여
+      반복되는 스타일을 적용할 수 있다.
+    </div>
+    <div id="pink" class="section">id가 class보다 CSS 우선순위가 높다.</div>
+  </body>
+</html>
