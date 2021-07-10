@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo Class</title>
+    <style>
+      #conference:hover {
+        background-color: black;
+        color: white;
+      }
+      li:first-of-type {
+        color: red;
+      }
+
+      li:nth-child(2) {
+        background: blue;
+      }
+
+      li:last-child {
+        font-size: 20px;
+      }
+
+      button:active {
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 id="conference">Conference</h3>
+    <h4>Developer Conference</h4>
+    <ul>
+      <li>Ella</li>
+      <li>Lee Hee Young</li>
+      <li>Mike</li>
+      <li>Richard</li>
+    </ul>
+    <button>등록</button>
+    <p>
+      CSS 의사 클래스(가상 클래스)는 선택자에 추가하는 키워드로, 선택한 요소가
+      특별한 상태여야 만족할 수 있다. 일반적인 클래스와 같이 여러 개의 의사
+      클래스를 조합해 복잡한 선택자를 만들 수 있다. 의사 요소는 의사 클래스와
+      달리 요소의 특정 부분에 스타일을 적용할 때 사용한다.
+    </p>
+  </body>
+</html>
