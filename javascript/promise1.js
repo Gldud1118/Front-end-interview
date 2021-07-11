@@ -1,6 +1,18 @@
-//자바스크립트에서 비동기 처리를 하는 방식 두가지 - promise, 콜백 패턴
+/**
+ * 자바스크립트에서 비동기 처리를 하는 방식은 두가지가 있는데 promise와 콜백 패턴이다. 콜백 패턴은 Promise가 보급되기 전에 많이 쓰였다.
+ * Promise - 비동기 상태를 값으로 다룰 수 있는 객체, Promise를 사용하면 비동기 프로그래밍을 할 때 동기 프로그래밍 형식으로 코드를 작성할 수 있다.
+ * Promise 3가지 상태
+ * 대기 중(pending) - 비동기 처리가 끝나지 않았을 때
+ * 아래 둘은 settled 상태라고도 부른다. settled상태가 되면 더 이상 다른 상태로 변경되지 않는다.
+ * 성공(fulfilled)
+ * 실패(rejected)
+ * Promise객체는 상태 말고도 데이터를 입력할 수 있다.
+ * 비동기 처리가 끝난 후 처리할 일을 then메서드로 정의할 수 있다.
+ * resolve는 비동기 작업을 성공적으로 완료해 결과를 값으로 반환할 떄 호출해야 하고,
+ * reject는 작업 실패하여 오류의 원인을 반환할 떄 호출하면 된다.
+ */
 
-//콜백 패턴 - promise가 보급되기 전에 많이 쓰였다.
+//콜백 패턴
 function requestData1(callback) {
   setTimeout(() => {
     callback({ name: 'abc', age: 23 });
@@ -24,19 +36,6 @@ function onSuccess2(data) {
 
 console.log('call requestData');
 requestData1(onSuccess1);
-
-/**
- * Promise - 비동기 상태를 값으로 다룰 수 있는 객체, Promise를 사용하면 비동기 프로그래밍을 할 때 동기 프로그래밍 형식으로 코드를 작성할 수 있다.
- * Promise 3가지 상태
- * 대기 중(pending) - 비동기 처리가 끝나지 않았을 때
- * 아래 둘은 settled 상태라고도 부른다. settled상태가 되면 더 이상 다른 상태로 변경되지 않는다.
- * 성공(fulfilled)
- * 실패(rejected)
- * Promise객체는 상태 말고도 데이터를 입력할 수 있다.
- * 비동기 처리가 끝난 후 처리할 일을 then메서드로 정의할 수 있다.
- * resolve는 비동기 작업을 성공적으로 완료해 결과를 값으로 반환할 떄 호출해야 하고,
- * reject는 작업 실패하여 오류의 원인을 반환할 떄 호출하면 된다.
- */
 
 const p1 = new Promise((resolve, reject) => {});
 const p2 = Promise.reject('error message');
@@ -82,7 +81,7 @@ requestData4().then((data) => {
   console.log(data);
 });
 
-//then 메서드는 항상 연결된 순서대로 호출 Promise를 리턴하고 두 개의 콜백함수를 인수로 받는다. 하나는 Promise가 이행했을 떄, 다른 하나는 거부했을 떄를 위한 콜백이다
+//then 메서드는 항상 연결된 순서대로 호출 Promise를 리턴하고 두 개의 콜백함수를 인수로 받는다. 하나는 Promise가 이행했을 떄, 다른 하나는 거부했을 때를 위한 콜백이다
 Promise.reject('err')
   .then(() => console.log('then 1'))
   .then(() => console.log('the2'))
@@ -101,7 +100,6 @@ Promise.reject(1).then(null, (error) => {
 });
 
 //then의 두번째 함수를 이용하는 것보다 catch를 이용하는게 좀 더 낫다
-
 Promise.reject(1).catch((error) => {
   console.log(error);
 });
