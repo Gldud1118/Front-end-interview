@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>async/defer</title>
+    <script async src="../javascript/arrow.js"></script>
+    <script defer src="../javascript/bind.js"></script>
+  </head>
+  <body>
+    <p>
+      async 어트리뷰트는 HTML파싱과 자바스크립트 파일의 로드가 비동기적으로
+      동시에 진행된다. 단, 자바스크립트의 파싱과 실행은 자바스크립트 파일의
+      로드가 완료된 직후 진행되며, 이때 HTML파싱이 중단된다. 여러 개의 script
+      태그에 async어트리뷰트를 지정하면 script태그의 순서와는 상관없이 로드가
+      완료된 자바스크립트부터 먼저 실행되므로 순서가 보장되지 않는다. 따라서
+      순서 보장이 필요한 script태그에는 async어트리뷰트를 지정하지 않아야 한다.
+    </p>
+    <p>
+      async어트리뷰트와 마찬가지로 HTML파싱와 외부 자바스크립트 파일의 로드가
+      비동기적으로 동시에 진행된다. 단, 자바스크립트의 파싱과 실행은 HTML파싱이
+      완료된 직후, 즉 DOM생성이 완료된 직후(DOMContentLoaded)진행된다. 따라서
+      DOM생성이 완료된 이후 실행되어야 할 자바스크립트에 유용하다.
+    </p>
+  </body>
+</html>
