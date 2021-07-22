@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debounce</title>
+  </head>
+  <body>
+    <!-- 디바운스는 짧은 시간 간격으로 이벤트가 연속해서 발생하면 이벤트 핸들러를 호출하지 않다가 일정 시간이 경과한 이후에 이벤트 핸들러가
+ 한 번만 호출되도록 한다. 즉, 디바운스는 짧은 시간 간격으로 발생하는 이벤트를 그룹화해서 마지막에 한 번만 이벤트 핸들러가 호출되도록 한다.  -->
+    <input type="text" />
+    <div class="msg"></div>
+    <script>
+      const $input = document.querySelector('input');
+      const $input = document.querySelector('.msg');
+
+      const debounce = (callback, delay) => {
+        let timerId;
+        return (event) => {
+          // delay가 경과하기 전에 이벤트가 발생하면 이전 타이머를 취소하고 새로운 타이머를 재설정한다.
+          // 따라서 delay보다 짧은 간격으로 이벤트가 발생하면 callback은 호출되지 않는다.
+          if (timerId) clearTimeout(timerId);
+          timerId = setTimeout(callback, delay, event);
+        };
+      };
+
+      $input.oninput = debounce((e) => {
+        $msg.textContent = e.target.value;
+      });
+    </script>
+  </body>
+</html>
