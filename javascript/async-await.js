@@ -1,14 +1,17 @@
-//async, await는 비동기 프로그래밍을 동기 프로그래밍 방식으로 작성하는데 특화된 문법
-//async await를 이용해서 비동기 코드를 작성하면 Promise의 then 메서드보다 가독성이 좋아진다.
-//async, await가 Promise를 완전히 대체하는 것은 아니다. Promise는 비동기 상태를 값으로 다룰 수 있기 때문에 async, await보다 큰 개념이다.
-//Promise는 객체로 존재하지만 async, await는 함수에 적용되는 개념이다.
-//await키워드는 오직 async, await 함수 내부에서만 사용할 수 있다.
+/**
+ * async, await는 비동기 프로그래밍을 동기 프로그래밍 방식으로 작성하는데 특화된 문법이다.
+ * async await를 이용해서 비동기 코드를 작성하면 Promise의 then 메서드보다 가독성이 좋아진다.
+ * async, await가 Promise를 완전히 대체하는 것은 아니다. Promise는 비동기 상태를 값으로 다룰 수 있기 때문에 async, await보다 큰 개념이다.
+ * async, await는 Promise를 기반으로 동작한다. async, await를 사용하면 Promise의 then/catch/finally 후속 처리 메서드에 콜백 함수를 전달해서 비동기 처리 결과를 후속 처리할 필요 없이 마치 동기 처리처럼 Promise를 사용할 수 있다.
+ * Promise는 객체로 존재하지만 async, await는 함수에 적용되는 개념이다.
+ * await키워드는 오직 async, await 함수 내부에서만 사용할 수 있다.
+ */
 
 async function getData() {
   return 123;
 }
 
-//async await 함수가 반환하는 값은 항상 Promise객체이다. 그래서 then메서드를 사용하는 것이 가능하다.
+//async await 함수는 언제나 Promise객체를 반환하므로 then메서드를 사용하는 것이 가능하다.
 getData().then((data) => console.log(data));
 
 //async await 함수 내부에서 반환하는 값이 Promise라면 그 상태와 데이터를 그대로 반환한다.
@@ -20,7 +23,6 @@ getData2()
   .then((data) => console.log('fulfilled', data))
   .catch((data) => console.log('rejected', data));
 
-//async 함수 내부에서 await 키워드를 사용할 수 있다.
 function requestData3(value) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -30,9 +32,10 @@ function requestData3(value) {
   });
 }
 
-//await 키워드로 비동기 처리를 기다리면서 동기 프로그래밍 방식으로 코드를 작성할 수 있다.
+// async 함수 내부에서 await 키워드를 사용할 수 있다. await 키워드로 비동기 처리를 기다리면서 동기 프로그래밍 방식으로 코드를 작성할 수 있다.
+// await 키워드는 Promise가 settled 상태(비동기 처리가 수행된 상태)가 될 때까지 대기하다가 settled 상태가 되면 Promise가 resolved한 처리 결과를 변수에 할당한다.
 async function printData() {
-  const data1 = await requestData3(10); //Promise 객체가 settled상태가 될 떄까지 기다린다. Promise객체가 fulfilled상태가 되면 그 데이터를 변수에 저장한다.
+  const data1 = await requestData3(10);
   const data2 = await requestData3(20);
   console.log('printData');
   console.log(data1, data2);
