@@ -44,3 +44,16 @@ function Person2() {
 }
 
 const p2 = new Person();
+
+const fun1 = function () {
+  console.log(arguments);
+};
+
+// 화살표 함수는 argument객체를 생성하지 않는다.
+const arrFun = () => {
+  //console.log(arguments); arguments is not defined
+};
+
+fun1(1, 2, 3, 4, 5);
+
+arrFun(1, 2, 3, 4, 5);
