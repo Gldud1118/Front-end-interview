@@ -21,20 +21,45 @@
         background-image: url(../assets/mickey.png);
         background-repeat: no-repeat;
         background-size: contain;
-        width: 62%;
+        width: 20%;
       }
 
       .mickey:after {
         content: '';
         width: 100%;
         display: block;
-        padding-bottom: 30%;
+        padding-bottom: 92%;
+      }
+
+      .bg2 {
+        position: relative;
+        background-image: url(../assets/background.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-bottom: 66%;
+      }
+
+      .mickey2 {
+        position: absolute;
+        top: 7%;
+        left: 39%;
+        background-image: url(../assets/mickey.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 20%;
+        height: 28%;
       }
     </style>
   </head>
   <body>
-    <div class="bg">
-      <div class="mickey"></div>
+    <div>
+      <div class="bg">
+        <div class="mickey"></div>
+      </div>
+    </div>
+
+    <div class="bg2">
+      <div class="mickey2"></div>
     </div>
   </body>
 </html>
