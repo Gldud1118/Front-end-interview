@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .bg {
+        position: relative;
+        background-image: url(../assets/background.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        padding-bottom: 66%;
+      }
+
+      .mickey {
+        position: absolute;
+        top: 7%;
+        left: 39%;
+        background-image: url(../assets/mickey.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 62%;
+      }
+
+      .mickey:after {
+        content: '';
+        width: 100%;
+        display: block;
+        padding-bottom: 30%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg">
+      <div class="mickey"></div>
+    </div>
+  </body>
+</html>
