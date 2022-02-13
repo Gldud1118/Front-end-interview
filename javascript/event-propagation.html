@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="fruits">
+      <li id="apple">apple</li>
+      <li id="pineapple">pineapple</li>
+      <li id="orange">orange</li>
+    </ul>
+
+    <p>버블링과 캡쳐링 이벤트 <button>버튼</button></p>
+
+    <script>
+      // 생성된 이벤트 객체는 이벤트를 발생시킨 DOM 요소인 이벤트 타깃을 중심으로 DOM트리를 통해 전파된다.
+      // 이벤트 전파는 이벤트 객체가 전파되는 방향에 따라 다음과 같이 3단계로 구분할 수 있다.
+      // 캡처링 단계 - 이벤트가 상위 요소에서 하위 요소 방향으로 전파
+      // 타깃 탄계 - 이벤트가 이벤트 타깃에 도달
+      // 버블링 단계 - 이벤트가 하위 요소에서 상위 방향으로 전파
+
+      document.getElementById('fruits').addEventListener('click', (e) => {
+        console.log(e.eventPhase); //버블링 단계
+        console.log(e.target);
+        console.log(e.currentTarget);
+        console.log(e);
+      });
+
+      // 이벤트는 이벤트를 발생시킨 이벤트 타깃은 물론 상위 DOM요소에서도 캐치할 수 있다.
+
+      document.body.addEventListener('click', () => {
+        console.log('body를 위한 핸들러 ');
+      });
+
+      document.querySelector('p').addEventListener('click', () => {
+        console.log('p를 위한 핸들러 ');
+      });
+
+      document.querySelector('button').addEventListener('click', (e) => {
+        // e.stopPropagation();
+        console.log('button을 위한 핸들러 '); // 버블링 단계의 이벤트를 캐치하는 button, p, body요소의 이벤트 핸들러가 순차적으로 호출된다.
+      });
+    </script>
+  </body>
+</html>
