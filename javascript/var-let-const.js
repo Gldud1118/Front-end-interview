@@ -17,6 +17,12 @@ if (true) {
 
 console.log(x);
 
+// var로 키워드로 선언한 변수는 런타임 이전에 자바스크립트 엔진에 의해 암묵적으로 "선언 단계"와 "초기화 단계"가 한번에 진행된다. 이후 변수 할당문에 도달하면 비로소 값이 할당된다.
+
+console.log(noError); //undefined
+
+var noError = 'no error!';
+
 /**
  * ES6 - let, const
  */
@@ -54,3 +60,28 @@ item[0] = 'banana';
 
 console.log(user); //{name: "Ella"}
 console.log(item); //["banana"]
+
+/**
+ * let, const 키워드로 선언한 변수는 "선언 단계"와 "초기화 단계"가 분리되어 진행된다. 즉 런타임 이전에 자바스크립트 엔진에 의해 암묵적으로
+ * 선언 단계가 먼저 실행되지만 초기화 단계는 변수 선언문에 도달했을 때 된다.
+ */
+
+// 런타임 이전에 선언 단계가 실행된다. 아직 변수가 초기화되지 않았다.초기화 이전의 일시적 사각지대에서는 변수를 참조할 수 없다.
+// console.log(errorBeforeReference);
+
+// 변수 선언문에서 초기화 단계가 실행된다.
+let errorBeforeReference;
+
+// 할당문에서 할당 단계가 실행된다.
+errorBeforeReference = 'error';
+
+// let, const로 선언한 키워드는 스코프의 시작 지점부터 초기화 단계 시작 지점까지 변수를 참조할 수 없는데 이 구간을 일시적 사각지대(Temporal Dead Zone)ㅣ알고 한다
+
+// let과 const도 호이스팅이 발생한다.
+
+let fooLet = 1;
+
+{
+  // console.log(fooLet);
+  let fooLet = 2;
+}
