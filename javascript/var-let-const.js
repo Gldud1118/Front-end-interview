@@ -23,6 +23,8 @@ console.log(noError); //undefined
 
 var noError = 'no error!';
 
+// var 키워드로 선언한 전역 변수와 전역 함수, 그리고 선언하지 않은 변수에 값을 할당한 암묵적 전역은 전역 객체 window의 프로퍼티가 된다.
+
 /**
  * ES6 - let, const
  */
@@ -85,3 +87,14 @@ let fooLet = 1;
   // console.log(fooLet);
   let fooLet = 2;
 }
+
+/**
+ * const
+ */
+
+// const로 선언한 변수는 재할당이 금지된다.
+const fooConst = 1;
+// fooConst = 2; Assignment to constant variable
+
+// const 키워드로 선언된 변수에 원시 값을 할당한 경우 값을 변경할 수 없다. 하지만 const 키워드로 선언된 변수에 객체를 할당한 경우 값을 변경할 수 있다.
+// 새로운 값을 재할당하는 것은 불가능하지만 프로퍼티의 동적 생성, 삭제, 프로퍼티 값의 변경을 통해 객체를 변경하는 것은 가능하다. 이떄 객체가 변경되더라도 변수에 할당된 참조 값은 변경되지 않는다.
