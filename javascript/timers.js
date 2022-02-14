@@ -20,6 +20,7 @@ const timerId = setTimeout(() => console.log('Hello'), 1000);
 clearTimeout(timerId);
 
 // setInterval 함수의 콜백 함수는 타이머가 만료될 때마다 반복 호출된다.
+// setInterval 함수는 생성된 타이머를 식별할 수 있는 고유한 타이머 id를 반환한다. setInterval 함수가 반환한 타이머 id는 브라우저 환경인 경우 숫자이며 Node.js 환경인 경우 객체다.
 let count = 1;
 
 const timeoutId = setInterval(() => {
