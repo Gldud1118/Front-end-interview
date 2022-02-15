@@ -3,6 +3,7 @@
  * async await를 이용해서 비동기 코드를 작성하면 Promise의 then 메서드보다 가독성이 좋아진다.
  * async, await가 Promise를 완전히 대체하는 것은 아니다. Promise는 비동기 상태를 값으로 다룰 수 있기 때문에 async, await보다 큰 개념이다.
  * async, await는 Promise를 기반으로 동작한다. async, await를 사용하면 Promise의 then/catch/finally 후속 처리 메서드에 콜백 함수를 전달해서 비동기 처리 결과를 후속 처리할 필요 없이 마치 동기 처리처럼 Promise를 사용할 수 있다.
+ * 다시 말해, 프로미스의 후속 처리 메서드 없이 마치 동기 처리처럼 프로미스가 처리 결과를 반환하도록 구현할 수 있다.
  * Promise는 객체로 존재하지만 async, await는 함수에 적용되는 개념이다.
  * await키워드는 오직 async, await 함수 내부에서만 사용할 수 있다.
  */
@@ -11,7 +12,8 @@ async function getData() {
   return 123;
 }
 
-//async await 함수는 언제나 Promise객체를 반환하므로 then메서드를 사용하는 것이 가능하다.
+// async 함수가 명시적으로 프로미스를 반환하지 않더라도 async 함수는 암묵적으로 반환값을 resolve하는 프로미스를 반환한다.
+// async await 함수는 언제나 Promise객체를 반환하므로 then메서드를 사용하는 것이 가능하다.
 getData().then((data) => console.log(data));
 
 //async await 함수 내부에서 반환하는 값이 Promise라면 그 상태와 데이터를 그대로 반환한다.
