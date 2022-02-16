@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Delegation</title>
+  </head>
+  <body></body>
+  <script>
+    // 이벤트 위임은 여러 개의 하위 DOM 요소에 각각 이벤트 핸들러를 등록하는 대신 하나의 상위 DOM 요소에 이벤트 핸들러를 등록하는 방법을 말한다.
+    // 이벤트와 이벤트를 발생시킨 타깃을 상위 DOM요소에서 캐치할 수 있다.
+    // 이벤트 위임을 통해 상위 DOM 요소에 이벤트 핸들러를 등록하면 여러 개의 하위 DOM요소에 이벤트 핸들러를 등록할 필요가 없다.
+    // 또한 동적으로 하위 DOM요소를 추가하더라도 일일이 추가된 DOM요소에 이벤트 핸들러를 등록할 필요가 없다.
+
+    // 이벤트 위임의 단점 이벤트 위임을 사용하려면 이벤트가 반드시 버블링 되어야 한다. 하지만 몇몇 이벤트는 버블링 되지 않는다.
+    // 상위 요소에 할당된 핸들러가 응답할 필요가 있는 이벤트이든 아니든 상관없이 모든 하위 요소에서 발생하는 이벤트에 응답해야 하므로 CPU 작업 부하가 늘어날 수 있다. 그런데 이런 부하는 무시할만한 수준이므로 실제로는 잘 고려하지 않는다.
+  </script>
+</html>
